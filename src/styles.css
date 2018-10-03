@@ -1,1 +1,222 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: top;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.container-large {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0px 10px;
+    margin: 0px auto;
+}
+
+.container {
+    max-width: 1100px;
+    width: 100%;
+    padding: 0px 15px;
+    margin: 0px auto;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #393939;
+    color: #fff;
+}
+
+table {
+    width: 100%;
+    background-color: #393939;
+}
+
+table th {
+    font-size: 15px;
+    color: #00ad5f;
+    line-height: 1.4;
+    text-transform: uppercase;
+    background-color: #393939;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+table td {
+    font-size: 15px;
+    color: #808080;
+    line-height: 1.4;
+    background-color: #222222;
+    padding: 10px 20px;
+}
+
+/*---------------------------------------------*/
+
+table {
+    overflow: hidden;
+    box-shadow: 0 0px 40px 0px rgba(255, 255, 255, 0.15);
+    border: 2px solid #fff;
+    width: 100%;
+}
+
+table.danger {
+    box-shadow: 0px 0px 0px 3px rgb(226, 27, 27);
+}
+
+.popup {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, 0.8);
+    height: 100vh;
+    width: 100vw;
+    padding: 50px 0px;
+}
+
+.popup form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #aaa;
+    height: 100%;
+    overflow: auto;
+    padding: 50px 0px;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.popup.active{
+    display: flex;
+}
+
+.popup form::-webkit-scrollbar {
+    width: 5px;
+}
+
+.popup form::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 24px;
+}
+ 
+.popup form::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
