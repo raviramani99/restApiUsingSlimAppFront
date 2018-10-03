@@ -17,11 +17,22 @@ export class UsersComponent implements OnInit {
 
 	public users: any;
 	public addUserForm: any;
+	public editUserForm: any;
 	public popupActive: boolean = false;
+	public EditPopupActive:boolean = false;
 
 	constructor(private http: Http, private _publicService: PublicService, private formBuilder: FormBuilder, private router: Router) {
 		// if( this.addUserForm.valid && this.addUserForm.dirty){
 			this.addUserForm = this.formBuilder.group({
+				'first_name': ['', Validators.required],
+				'last_name': ['', Validators.required],
+				'email': ['', [Validators.required, ValidationService.emailValidator]],
+				'phone': ['', Validators.required],
+				'address': ['', Validators.required],
+				'city': '',
+				'state': ''
+			});
+			this.editUserForm = this.formBuilder.group({
 				'first_name': ['', Validators.required],
 				'last_name': ['', Validators.required],
 				'email': ['', [Validators.required, ValidationService.emailValidator]],
@@ -77,6 +88,19 @@ export class UsersComponent implements OnInit {
 			},
 		);
 	}
+	userEdit(id){
+		this._publicService.editUser(id,this.editUserForm.value).subscribe(
+			response => {
+				console.log(response)
+				this.EditPopupActive = false;	
+			},
+			err => {
+				this.usersListing();
+				// console.log(JSON.parse(err._body).message);
+			},
+		);
+	}
+
 	addUser(){
 		this.popupActive = true;
 	}

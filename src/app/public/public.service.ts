@@ -24,4 +24,10 @@ export class PublicService {
         return this.http.delete('http://slimapp/api/user/delete/' + id).pipe(map((res: Response) => res.json()))
     }
 
+    editUser(id,data) {
+        return this.http.put('http://slimapp/api/user/update/' + id,data).pipe(map((res: Response) => res.json()))
+    }
+
+
+
 }

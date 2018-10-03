@@ -23,7 +23,7 @@
 				<td>{{user.city}}</td>
 				<td>{{user.state}}</td>
 				<td (click)="userRemove(user.id);">
-					<div class="icon">
+					<!-- <div class="icon">
 						<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 						 viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
 							<circle style="fill:#E21B1B;" cx="255.999" cy="255.999" r="255.999" />
@@ -35,7 +35,11 @@
 								 height="24" />
 							</g>
 						</svg>
-					</div>
+					</div> -->
+					<span>d</span>
+				</td>
+				<td (click)="EditPopupActive = true; editUserId = user.id" >
+					<span>E</span>
 				</td>
 			</tr>
 		</tbody>
@@ -95,5 +99,61 @@
 	</form>
 	<div class="submit">
 		<button class="btn" (click)="userInsert()">add user</button>
+	</div>
+</div>
+<div class="popup" [ngClass]="{'active': EditPopupActive == true}">
+	<form class="form" [formGroup]="editUserForm">
+		<div class="input-group">
+			<label>First Name</label>
+			<div class="input">
+				<input type="text" formControlName="first_name" />
+				<control-messages [control]="addUserForm.controls.first_name" class="controlMessage"></control-messages>
+			</div>
+		</div>
+		<div class="input-group">
+			<label>Last Name</label>
+			<div class="input">
+				<input type="text" formControlName="last_name" />
+				<control-messages [control]="addUserForm.controls.last_name" class="controlMessage"></control-messages>
+			</div>
+		</div>
+		<div class="input-group">
+			<label>Email</label>
+			<div class="input">
+				<input type="text" formControlName="email" />
+				<control-messages [control]="addUserForm.controls.email" class="controlMessage"></control-messages>
+			</div>
+		</div>
+		<div class="input-group">
+			<label>Phone</label>
+			<div class="input">
+				<input type="text" formControlName="phone" />
+				<control-messages [control]="addUserForm.controls.phone" class="controlMessage"></control-messages>
+			</div>
+		</div>
+		<div class="input-group">
+			<label>Address</label>
+			<div class="input">
+				<input type="text" formControlName="address" />
+				<control-messages [control]="addUserForm.controls.address" class="controlMessage"></control-messages>
+			</div>
+		</div>
+		<div class="input-group">
+			<label>City</label>
+			<div class="input">
+				<input type="text" formControlName="city" />
+				<control-messages [control]="addUserForm.controls.city" class="controlMessage"></control-messages>
+			</div>
+		</div>
+		<div class="input-group">
+			<label>State</label>
+			<div class="input">
+				<input type="text" formControlName="state" />
+				<control-messages [control]="addUserForm.controls.state" class="controlMessage"></control-messages>
+			</div>
+		</div>
+	</form>
+	<div class="submit">
+		<button class="btn" (click)="userEdit(editUserId);">update user</button>
 	</div>
 </div>
